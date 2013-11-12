@@ -152,6 +152,10 @@ p {
     p {
       max-width: 720px; } }
 
+li > p { 
+    overflow: initial; 
+}
+
 .clearfix {
   clear: both; }
 
