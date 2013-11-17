@@ -111,6 +111,11 @@ $line-filling-color:#dadada
 $news-text-color: #878787
 $menu-text-color:#7F7F7F
 
+@mixin border-box
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  -o-box-sizing: border-box
+  box-sizing: border-box
 
 $gear-color:#FFF000
 $aero-color:#000FFF
@@ -156,10 +161,7 @@ body
   color: $main-text-color
 
 p
-  -moz-box-sizing: border-box
-  -webkit-box-sizing: border-box
-  -o-box-sizing: border-box
-  box-sizing: border-box
+  @include border-box
   max-width: 60em
   overflow: hidden
   text-overflow: ellipsis
@@ -301,10 +303,7 @@ a.news
  */
 .features
   p
-    -moz-box-sizing: border-box
-    -webkit-box-sizing: border-box
-    -o-box-sizing: border-box
-    box-sizing: border-box
+  @include border-box
   h3
     margin-top: 0
 
@@ -427,10 +426,7 @@ a#slide-menu-button:hover
 /* =================== Content ======================================================================================
  */
 .container
-  -moz-box-sizing: border-box
-  -webkit-box-sizing: border-box
-  -o-box-sizing: border-box
-  box-sizing: border-box
+  @include border-box
   width: 100%
 
 .basic, .post
@@ -577,17 +573,14 @@ pre
       display: block
       height: 46px
       font-size: 16px
-      -moz-box-sizing: border-box
-      box-sizing: border-box
+      @include border-box
       padding: 12px 0 0 20px
       text-decoration: none
     nav.site
-      -moz-box-sizing: border-box
-      box-sizing: border-box
+      @include border-box
       padding: 10px
       display: block
-    -moz-box-sizing: border-box
-    box-sizing: border-box
+    @include border-box
     padding: 10px
     display: block
 
