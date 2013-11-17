@@ -100,7 +100,7 @@ textarea
   src: local("Open Sans Semibold Italic"), local("OpenSans-SemiboldItalic"), url(/font/PRmiXeptR36kaC0GEAetxhyVJL_BP-r1aUfHSUUH87w.woff) format("woff")
 
 
-/* =================== Standard elements ============================================================================
+/* =================== Pre-processors: mixins definition, color etc ==================================================
  */
 
 $gear-color:#669eb2
@@ -117,6 +117,20 @@ $menu-text-color:#7F7F7F
   -o-box-sizing: border-box
   box-sizing: border-box
 
+$break-phone:656px
+$break-tablet:848px
+
+@mixin respond-to($media-size)
+  @if $media-size == phone
+    @media only screen and (max-width: $break-phone)
+      @content
+  @else if $media-size == tablet
+    @media only screen and (min-width:$break-phone + 1) and (max-width: $break-tablet - 1)
+      @content
+  @else if $media-size == desktop
+    @media only screen and (min-width: $break-tablet)
+      @content
+
 $gear-color:#FFF000
 $aero-color:#000FFF
 $main-text-color: #73ff73
@@ -124,6 +138,9 @@ $filling-color: #f2beef
 $line-filling-color:#f23eea
 $news-text-color: #7514e1
 $menu-text-color:#790f7f
+
+/* =================== Standard elements ============================================================================
+ */
 
 a
   color: $gear_color
@@ -162,9 +179,12 @@ body
 
 p
   @include border-box
-  max-width: 60em
   overflow: hidden
   text-overflow: ellipsis
+  @include respond-to(desktop)
+    max-width: 960px
+  @include respond-to(tablet)
+    max-width: 720px
 
 .clearfix
   clear: both
@@ -225,6 +245,8 @@ nav a:hover
   height: 5.75em
   background-repeat: no-repeat
   background-position: left
+  @media only screen and (max-width: 656px)
+    background-position: center
   background-image: url(/img/aerogear_logo.png)
   margin-left: 5%
 
@@ -310,6 +332,8 @@ a.news
 .feature
   margin: 3em auto
   max-width: 60em
+  @media only screen and (max-width: 848px)
+    max-width: 720px
   .description
     float: left
     p
@@ -392,6 +416,7 @@ footer
 a#slide-menu-button:hover
   text-decoration: none
   border-bottom: 0px
+
 
 /* =============== Display facebook icon on footer ==================================================================
  */
@@ -496,9 +521,9 @@ pre
  *   For small than 850 px
  * ==================================================================================================================
  */
-@media only screen and (max-width: 848px)
-  p, .feature
-    max-width: 720px
+//@media only screen and (max-width: 848px)
+//  p, .feature
+//    max-width: 720px
   /* =================== Main page content: features ==============================================================
    */
 /* ==================================================================================================================
@@ -507,8 +532,8 @@ pre
  * ==================================================================================================================
  */
 @media only screen and (max-width: 656px)
-  #logo
-    background-position: center
+  //#logo
+  //  background-position: center
   /* =================== Content ==================================================================================
    */
   .row

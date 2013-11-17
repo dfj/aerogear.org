@@ -89,6 +89,8 @@ textarea {
   font-weight: 600;
   src: local("Open Sans Semibold Italic"), local("OpenSans-SemiboldItalic"), url(/font/PRmiXeptR36kaC0GEAetxhyVJL_BP-r1aUfHSUUH87w.woff) format("woff"); }
 
+/* =================== Pre-processors: mixins definition, color etc ==================================================
+ */
 /* =================== Standard elements ============================================================================
  */
 a {
@@ -131,9 +133,14 @@ p {
   -webkit-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box;
-  max-width: 60em;
   overflow: hidden;
   text-overflow: ellipsis; }
+  @media only screen and (min-width: 848px) {
+    p {
+      max-width: 960px; } }
+  @media only screen and (min-width: 657px) and (max-width: 847px) {
+    p {
+      max-width: 720px; } }
 
 .clearfix {
   clear: both; }
@@ -194,6 +201,9 @@ nav a:hover {
   background-position: left;
   background-image: url(/img/aerogear_logo.png);
   margin-left: 5%; }
+  @media only screen and (max-width: 656px) {
+    #logo {
+      background-position: center; } }
 
 .end-title {
   /* keep space for grey menu bar */
@@ -278,6 +288,9 @@ a.news {
 .feature {
   margin: 3em auto;
   max-width: 60em; }
+  @media only screen and (max-width: 848px) {
+    .feature {
+      max-width: 720px; } }
   .feature .description {
     float: left; }
     .feature .description p {
@@ -467,21 +480,12 @@ pre {
  *   For small than 850 px
  * ==================================================================================================================
  */
-@media only screen and (max-width: 848px) {
-  p, .feature {
-    max-width: 720px; }
-
-  /* =================== Main page content: features ==============================================================
-   */ }
 /* ==================================================================================================================
  *    AeroGear custom styles for Phone
  *    For small than 660 px
  * ==================================================================================================================
  */
 @media only screen and (max-width: 656px) {
-  #logo {
-    background-position: center; }
-
   /* =================== Content ==================================================================================
    */
   .row {
