@@ -144,9 +144,13 @@ $menu-text-color:#790f7f
 
 a
   color: $gear_color
+  @include respond-to(phone)
+    &.fixed
+      display: none !important
 
 .basic a:hover
   opacity: 0.61
+
 
 h1, h2, h3, h4
   color: $aero-color
@@ -155,9 +159,14 @@ h1, h2, h3, h4
 
 h1
   font-size: 2em
+  @include respond-to(phone)
+    font-size: 1.75em
+    margin: 3em 0 0 0
 
 h2
   font-size: 1.75em
+  @include respond-to(phone)
+    font-size: 1.25em
 
 h3
   font-size: 1.25em
@@ -282,6 +291,8 @@ a.news
     text-decoration: none
 
 .module
+  @include respond-to(phone)
+    width:  35%
   img
     width: 6em
     padding: 5px
@@ -328,22 +339,29 @@ a.news
   @include border-box
   h3
     margin-top: 0
+    @include respond-to(phone)
+      margin: 0 0.5em
 
 .feature
   margin: 3em auto
-  max-width: 60em
-  @media only screen and (max-width: 848px)
+  @include respond-to(desktop)
+    max-width: 960px
+  @include respond-to(tablet)
     max-width: 720px
   .description
     float: left
     p
       margin: 0.75em 0
+      @include respond-to(phone)
+        margin: 0.75em 1em
   .illustration
     float: right
     width: 18.75em
     text-align: center
     img
       border-left: 1px $line-filling-color solid
+      @include respond-to(phone)
+        display :none
     &.left
       float: left
       img
@@ -397,6 +415,7 @@ footer
 
 /* =============== Side Navigation: hidden for desktop ==============================================================
  */
+
 #sideNav
   background: transparent
   width: 220px
@@ -409,14 +428,50 @@ footer
     display: none
   li a
     padding: 12px 0 0 10px
+  @include respond-to(phone)
+    ul
+      list-style: none
+      margin: 0
+      padding: 0
+    li a
+      color: $menu-text-color
+      display: block
+      height: 46px
+      font-size: 16px
+      @include border-box
+      padding: 12px 0 0 20px
+      text-decoration: none
+    nav.site
+      @include border-box
+      padding: 10px
+      display: block
+    @include border-box
+    padding: 10px
+    display: block
 
 #slide-menu-button
   visibility: hidden
+  @include respond-to(phone)
+    visibility: visble
 
 a#slide-menu-button:hover
   text-decoration: none
   border-bottom: 0px
 
+#site
+  @include respond-to(phone)
+    width: 100%
+    position: absolute
+    z-index: 10
+    background: inherit
+    left: 0
+    transition: all 0.2s ease-out
+    -webkit-transition: all 0.2s ease-out
+    transform: translate3d(0, 0, 0)
+    -webkit-transform: translate3d(0, 0, 0)
+    &.open
+      transform: translate3d(200px, 0, 0)
+      -webkit-transform: translate3d(200px, 0, 0)
 
 /* =============== Display facebook icon on footer ==================================================================
  */
@@ -464,22 +519,34 @@ a#slide-menu-button:hover
 .row
   display: inline-block
   float: left
+  @include respond-to(phone)
+    float: none
   width: 100%
 
-.column
-  width: 45%
+.column_base
   float: left
   display: inline-block
+  @include respond-to(phone)
+    width: 100%
+    float: none
+    margin-right: 1%
+    padding-left: 0.5%
+
+.column
+  @extend .column_base
+  width: 45%
 
 .column3
+  @extend .column_base
   width: 30%
-  float: left
-  display: inline-block
 
 .column4
+  @extend .column_base
   width: 23%
-  float: left
-  display: inline-block
+
+@include respond-to(phone)
+  .column pre
+    margin-right: 2%
 
 pre
   background-color: $filling-color
@@ -515,99 +582,6 @@ pre
   padding: 0
   font-style: italic
   font-size: 0.75em
-
-/* ==================================================================================================================
- *   AeroGear custom styles for Tablets
- *   For small than 850 px
- * ==================================================================================================================
- */
-//@media only screen and (max-width: 848px)
-//  p, .feature
-//    max-width: 720px
-  /* =================== Main page content: features ==============================================================
-   */
-/* ==================================================================================================================
- *    AeroGear custom styles for Phone
- *    For small than 660 px
- * ==================================================================================================================
- */
-@media only screen and (max-width: 656px)
-  //#logo
-  //  background-position: center
-  /* =================== Content ==================================================================================
-   */
-  .row
-    float: none
-  .column, .column3, .column4
-    width: 100%
-    float: none
-    margin-right: 1%
-    padding-left: 0.5%
-  .column pre
-    margin-right: 2%
-  h1
-    font-size: 1.75em
-    margin: 3em 0 0 0
-  h2
-    font-size: 1.25em
-  /* =================== Modules: iOS, JS, Cordova, Android sections ==============================================
-   */
-  .module
-    width: 35%
-  a.fixed
-    display: none !important
-  /* =============== Main page content: features ==================================================================
-   */
-  .feature
-    img
-      display: none
-    .description p
-      margin: 0.75em 1em
-  .features h3
-    margin: 0 0.5em
-  /* =============== Side Navigation: accessible with swipe =======================================================
-  /*
-   ** Display menu swipe button 'hamburger like' icon
-   */
-  #slide-menu-button
-    visibility: visible
-
-  #site
-    width: 100%
-    position: absolute
-    z-index: 10
-    background: inherit
-    left: 0
-    transition: all 0.2s ease-out
-    -webkit-transition: all 0.2s ease-out
-    transform: translate3d(0, 0, 0)
-    -webkit-transform: translate3d(0, 0, 0)
-    &.open
-      transform: translate3d(200px, 0, 0)
-      -webkit-transform: translate3d(200px, 0, 0)
-  /*
-   ** Display sidebar menu once clicked on hamburger button to open it
-    */
-  #sideNav
-    ul
-      list-style: none
-      margin: 0
-      padding: 0
-    li a
-      color: $menu-text-color
-      display: block
-      height: 46px
-      font-size: 16px
-      @include border-box
-      padding: 12px 0 0 20px
-      text-decoration: none
-    nav.site
-      @include border-box
-      padding: 10px
-      display: block
-    @include border-box
-    padding: 10px
-    display: block
 
 /* ==================================================================================================================
  * Helper classes
@@ -687,22 +661,6 @@ pre
     clear: both
   *zoom: 1
 
-/*
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-/* ==================================================================================================================
- * EXAMPLE Media Queries for Responsive Design.
- * These examples override the primary ('mobile first') styles.
- * Modify as content requires.
- * ==================================================================================================================
- */
-@media only screen and (min-width: 35em)
-  /* Style adjustments for viewports that meet the condition
-   */
-@media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi)
-  /* Style adjustments for high resolution devices
-   */
 /* ==================================================================================================================
  * Print styles.
  * Inlined to avoid required HTTP connection: h5bp.com/r
