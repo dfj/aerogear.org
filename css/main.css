@@ -152,8 +152,8 @@ p {
     p {
       max-width: 720px; } }
 
-li > p { 
-    overflow: visible; 
+li > p {
+    overflow: visible;
 }
 
 .clearfix {
