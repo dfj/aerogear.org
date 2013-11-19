@@ -95,6 +95,9 @@ textarea {
  */
 a {
   color: #fff000; }
+  @media only screen and (max-width: 656px) {
+    a.fixed {
+      display: none !important; } }
 
 .basic a:hover {
   opacity: 0.61; }
@@ -106,9 +109,16 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: 2em; }
+  @media only screen and (max-width: 656px) {
+    h1 {
+      font-size: 1.75em;
+      margin: 3em 0 0 0; } }
 
 h2 {
   font-size: 1.75em; }
+  @media only screen and (max-width: 656px) {
+    h2 {
+      font-size: 1.25em; } }
 
 h3 {
   font-size: 1.25em; }
@@ -236,6 +246,9 @@ a.news {
     margin-bottom: 1.4em;
     text-decoration: none; }
 
+@media only screen and (max-width: 656px) {
+  .module {
+    width: 35%; } }
 .module img {
   width: 6em;
   padding: 5px; }
@@ -277,24 +290,32 @@ a.news {
 
 /* =================== Main page content: features ==================================================================
  */
-.features {
+.features p {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box; }
-  .features h3 {
-    margin-top: 0; }
+.features h3 {
+  margin-top: 0; }
+  @media only screen and (max-width: 656px) {
+    .features h3 {
+      margin: 0 0.5em; } }
 
 .feature {
-  margin: 3em auto;
-  max-width: 60em; }
-  @media only screen and (max-width: 848px) {
+  margin: 3em auto; }
+  @media only screen and (min-width: 848px) {
+    .feature {
+      max-width: 960px; } }
+  @media only screen and (min-width: 657px) and (max-width: 847px) {
     .feature {
       max-width: 720px; } }
   .feature .description {
     float: left; }
     .feature .description p {
       margin: 0.75em 0; }
+      @media only screen and (max-width: 656px) {
+        .feature .description p {
+          margin: 0.75em 1em; } }
   .feature .illustration {
     float: right;
     width: 18.75em;
@@ -366,13 +387,61 @@ footer {
     display: none; }
   #sideNav li a {
     padding: 12px 0 0 10px; }
+  @media only screen and (max-width: 656px) {
+    #sideNav {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 10px;
+      display: block; }
+      #sideNav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0; }
+      #sideNav li a {
+        color: #790f7f;
+        display: block;
+        height: 46px;
+        font-size: 16px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 12px 0 0 20px;
+        text-decoration: none; }
+      #sideNav nav.site {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 10px;
+        display: block; } }
 
 #slide-menu-button {
   visibility: hidden; }
+  @media only screen and (max-width: 656px) {
+    #slide-menu-button {
+      visibility: visble; } }
 
 a#slide-menu-button:hover {
   text-decoration: none;
   border-bottom: 0px; }
+
+@media only screen and (max-width: 656px) {
+  #site {
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    background: inherit;
+    left: 0;
+    transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0); }
+    #site.open {
+      transform: translate3d(200px, 0, 0);
+      -webkit-transform: translate3d(200px, 0, 0); } }
 
 /* =============== Display facebook icon on footer ==================================================================
  */
@@ -424,22 +493,32 @@ a#slide-menu-button:hover {
   display: inline-block;
   float: left;
   width: 100%; }
+  @media only screen and (max-width: 656px) {
+    .row {
+      float: none; } }
+
+.column_base, .column, .column3, .column4 {
+  float: left;
+  display: inline-block; }
+  @media only screen and (max-width: 656px) {
+    .column_base, .column, .column3, .column4 {
+      width: 100%;
+      float: none;
+      margin-right: 1%;
+      padding-left: 0.5%; } }
 
 .column {
-  width: 45%;
-  float: left;
-  display: inline-block; }
+  width: 45%; }
 
 .column3 {
-  width: 30%;
-  float: left;
-  display: inline-block; }
+  width: 30%; }
 
 .column4 {
-  width: 23%;
-  float: left;
-  display: inline-block; }
+  width: 23%; }
 
+@media only screen and (max-width: 656px) {
+  .column pre {
+    margin-right: 2%; } }
 pre {
   background-color: #f2beef;
   border: 1px #f23eea dotted;
@@ -475,107 +554,6 @@ pre {
   font-style: italic;
   font-size: 0.75em; }
 
-/* ==================================================================================================================
- *   AeroGear custom styles for Tablets
- *   For small than 850 px
- * ==================================================================================================================
- */
-/* ==================================================================================================================
- *    AeroGear custom styles for Phone
- *    For small than 660 px
- * ==================================================================================================================
- */
-@media only screen and (max-width: 656px) {
-  /* =================== Content ==================================================================================
-   */
-  .row {
-    float: none; }
-
-  .column, .column3, .column4 {
-    width: 100%;
-    float: none;
-    margin-right: 1%;
-    padding-left: 0.5%; }
-
-  .column pre {
-    margin-right: 2%; }
-
-  h1 {
-    font-size: 1.75em;
-    margin: 3em 0 0 0; }
-
-  h2 {
-    font-size: 1.25em; }
-
-  /* =================== Modules: iOS, JS, Cordova, Android sections ==============================================
-   */
-  .module {
-    width: 35%; }
-
-  a.fixed {
-    display: none !important; }
-
-  /* =============== Main page content: features ==================================================================
-   */
-  .feature img {
-    display: none; }
-  .feature .description p {
-    margin: 0.75em 1em; }
-
-  .features h3 {
-    margin: 0 0.5em; }
-
-  /* =============== Side Navigation: accessible with swipe ======================================================= */
-  /** Display menu swipe button 'hamburger like' icon
-   */
-  #slide-menu-button {
-    visibility: visible; }
-
-  #site {
-    width: 100%;
-    position: absolute;
-    z-index: 10;
-    background: inherit;
-    left: 0;
-    transition: all 0.2s ease-out;
-    -webkit-transition: all 0.2s ease-out;
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0); }
-    #site.open {
-      transform: translate3d(200px, 0, 0);
-      -webkit-transform: translate3d(200px, 0, 0); }
-
-  /** Display sidebar menu once clicked on hamburger button to open it
-   */
-  #sideNav {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 10px;
-    display: block; }
-    #sideNav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0; }
-    #sideNav li a {
-      color: #790f7f;
-      display: block;
-      height: 46px;
-      font-size: 16px;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      -o-box-sizing: border-box;
-      box-sizing: border-box;
-      padding: 12px 0 0 20px;
-      text-decoration: none; }
-    #sideNav nav.site {
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      -o-box-sizing: border-box;
-      box-sizing: border-box;
-      padding: 10px;
-      display: block; } }
 /* ==================================================================================================================
  * Helper classes
  * ================================================================================================================== */
@@ -645,21 +623,6 @@ pre {
     display: table;
     clear: both; }
 
-/* For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-/* ==================================================================================================================
- * EXAMPLE Media Queries for Responsive Design.
- * These examples override the primary ('mobile first') styles.
- * Modify as content requires.
- * ==================================================================================================================
- */
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition
-   */ }
-@media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices
-   */ }
 /* ==================================================================================================================
  * Print styles.
  * Inlined to avoid required HTTP connection: h5bp.com/r
