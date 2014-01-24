@@ -91,6 +91,9 @@ textarea {
 
 /* =================== Pre-processors: mixins definition, color etc ==================================================
  */
+/*TODO use Sbackground-color to set background body */
+/*white theme */
+/*Dracula theme */
 /* =================== Standard elements ============================================================================
  */
 a {
@@ -268,19 +271,22 @@ a.news {
   color: #60625e; }
 
 div.section {
-  color: #ebebeb;
-  background-color: #323232;
-  border-top: #121212 solid 16px; }
+  color: #575653;
+  background-color: white;
+  border-top: #dadada solid 16px; }
   div.section .sect1 h2 {
     background: url("/img/example-icon.png") no-repeat left;
     margin: -40px;
     padding: 40px;
-    color: #ebebeb; }
+    color: #575653; }
+  div.section .sect1 h3 {
+    text-transform: uppercase;
+    color: #575653; }
   div.section pre {
-    background-color: #222222;
+    background-color: #f2f2f2;
     border: none; }
   div.section .hljs {
-    background-color: #222222; }
+    background-color: #f2f2f2; }
 
 div.core a {
   color: #df7220;
@@ -327,10 +333,10 @@ div.core .section-strip {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #222222; }
+  background-color: #f2f2f2; }
 
 .nav-tabs {
-  border-bottom: 1px solid #323232;
+  border-bottom: 1px solid #dadada;
   margin: 0 0.5em; }
 
 .nav-tabs > li {
@@ -342,16 +348,16 @@ div.core .section-strip {
   line-height: 1.42857;
   border: 1px solid transparent;
   border-radius: 4px 4px 0 0;
-  color: #ebebeb; }
+  color: #575653; }
 
 .nav-tabs > li > a:hover {
-  border-color: #323232 #323232 #121212; }
+  border-color: #dadada #dadada #dadada; }
 
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  background-color: #222222;
-  border: 1px solid #323232;
+  background-color: #f2f2f2;
+  border: 1px solid #dadada;
   border-bottom-color: transparent;
   cursor: default; }
 
